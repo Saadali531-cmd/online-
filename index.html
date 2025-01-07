@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medium Circular Button with Mixed-Color Shine</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    .container {
+      position: relative;
+      text-align: center;
+    }
+    .image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    .button {
+      position: absolute;
+      top: 85%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, #007BFF, #FF00FF, #00FF00);
+      color: white;
+      width: 80px; /* Medium button size */
+      height: 80px; /* Medium button size */
+      line-height: 80px; /* Center text vertically */
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 50%;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+      animation: mixed-shine 2s infinite alternate;
+      overflow: hidden;
+    }
+    .button:hover {
+      background: linear-gradient(135deg, #0056b3, #FF69B4, #00FA9A);
+    }
+    @keyframes mixed-shine {
+      0% {
+        box-shadow: 0 0 15px #007BFF, 0 0 25px #FF00FF, 0 0 35px #00FF00;
+      }
+      50% {
+        box-shadow: 0 0 25px #FF00FF, 0 0 35px #00FF00, 0 0 45px #007BFF;
+      }
+      100% {
+        box-shadow: 0 0 35px #00FF00, 0 0 45px #007BFF, 0 0 55px #FF00FF;
+      }
+    }
+  </style>
+  <script>
+    // Ensure the same page reloads when refreshed
+    window.addEventListener("beforeunload", function () {
+      // Store current URL in session storage to ensure the same page loads
+      sessionStorage.setItem("lastPage", window.location.href);
+    });
+
+    window.addEventListener("load", function () {
+      const lastPage = sessionStorage.getItem("lastPage");
+      if (lastPage && lastPage !== window.location.href) {
+        window.location.href = lastPage;
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.imgur.com/9m1o9Ct.jpeg" alt="Background Image" class="image">
+    <a href="your-file.pdf" class="button" download="YourVisaApplication.pdf">APPLY</a>
+  </div>
+</body>
+</html>
